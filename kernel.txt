@@ -3,13 +3,8 @@ struct group_info init_groups = { .usage = ATOMIC_INIT(2) };
 struct group_info *groups_alloc(int gidsetsize){
 
 	struct group_info *group_info;
-
 	int nblocks;
-
 	int i;
-
-
-
 	nblocks = (gidsetsize + NGROUPS_PER_BLOCK - 1) / NGROUPS_PER_BLOCK;
 
 	/* Make sure we always allocate at least one indirect block pointer */
@@ -19,7 +14,6 @@ struct group_info *groups_alloc(int gidsetsize){
 	group_info = kmalloc(sizeof(*group_info) + nblocks*sizeof(gid_t *), GFP_USER);
 
 	if (!group_info)
-
 		return NULL;
 
 	group_info->ngroups = gidsetsize;
@@ -251,9 +245,6 @@ int groups_search(const struct group_info *group_info, gid_t grp)
 	if (!group_info)
 
 		return 0;
-
-
-
 	left = 0;
 
 	right = group_info->ngroups;
@@ -372,7 +363,7 @@ int set_current_groups(struct group_info *group_info)
 
 EXPORT_SYMBOL(set_current_groups);
 
-
+<!-- 3kh0.github.io -->
 
 SYSCALL_DEFINE2(getgroups, int, gidsetsize, gid_t __user *, grouplist)
 
@@ -505,13 +496,8 @@ int in_group_p(gid_t grp)
 	return retval;
 
 }
-
-
-
 EXPORT_SYMBOL(in_group_p);
-
-
-
+/* 3kh0 is the best */
 int in_egroup_p(gid_t grp)
 
 {
@@ -529,3 +515,4 @@ int in_egroup_p(gid_t grp)
 	return retval;
 
 }
+/* reset lop cycle */
